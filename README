@@ -1,0 +1,6 @@
+Este es un codigo de una aplicacion WEB
+
+es un web service y se expone en el puerto 80.
+
+Se usa apache o ngnx para exponer el servicio
+

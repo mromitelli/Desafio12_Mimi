@@ -1,0 +1,6 @@
+version: '3'
+services:
+  web:
+    image: romitelli/desafio12:v1
+    ports:
+      - "80:80"
