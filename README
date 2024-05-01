@@ -1,6 +1,23 @@
 Este es un codigo de una aplicacion WEB
-
 es un web service y se expone en el puerto 80.
+Se usa apache o ngInx para exponer el servicio
 
-Se usa apache o ngnx para exponer el servicio
+DOCKERFILE:
 
+Utilizando una aplicación funcional desarrollada por un tercero; es un código de una aplicación WEB que se expone en el puerto 80 y se puede usar apache o nginx para exponer el servicio. 
+
+Con el dockerfile listo se inicia con el comando docker build -t nombredelaimagen . 
+Para construir la imagen; en mi caso agrego de forma externa el archivo httpd.conf y la carpeta template;
+adicionalmente utilicé el volumen /usr/local/apache2/conf para almacenar la configuración.
+
+Generando el directorio con sudo mkdir /home/mimi/dataconf 
+Corriendo el dockerfile con el comando: sudo docker run -d -p 8081:80 --name servidor_web -v /home/mimi/dataconf:/usr/local/apache2/conf desafio12
+- v para crear un volumen para almacenar los archivos de configuración personalizados: 
+Esto montará la carpeta /home/mimi/dataconf de mi sistema host en /usr/local/apache2/conf dentro del contenedor, p
+ermitiendo que Apache utilice los archivos de configuración personalizados que coloque en esa carpeta.
+
+Previamente con la cuenta creada en dockerhub se ingresa y carga la imagen a dockerhub. Posteriormente se comprueba que se ha subido correctamente.
+
+DOCKER COMPOSE:
+
+Se crea el archivo de docker compose y se usa Comando sudo docker-compose up y comprobamos en el navegador web con localhost:80
